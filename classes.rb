@@ -14,7 +14,7 @@ class LinkedList
 	end
 
 	def append(value)
-		p new_node = create_node(value)
+		new_node = create_node(value)
 		if @head.nil?
 			@head = new_node
 			@tail = new_node
@@ -33,7 +33,6 @@ class LinkedList
 		else
 			new_node.next_node = @head
 			@head = new_node
-			p new_node.next_node
 		end
 		@total += 1
 	end
@@ -90,14 +89,16 @@ class LinkedList
 		if node == @tail
 			string += " #{node.data} -> nil"
 			p string
-		elsif node.data != nil
+		elsif node.next_node != nil
 			string += " #{node.data} ->"
 			to_s(node.next_node, string)
+		else
+			return
 		end
 	end
 
 	def insert_at(value, index, i = 0)
-		p new_node = create_node(value)
+		new_node = create_node(value)
 		if @head.nil?
 			@head = new_node
 			@tail = new_node
@@ -119,8 +120,10 @@ class LinkedList
 		end
 		if index == i
 			entry = at_node_only(index)
+			prev = at_node_only(i-1)
+			after = at_node_only(i+1)
 			entry.next_node = nil
-			at_node_only(i-1).next_node = at_node_only(i+1)
+			prev.next_node = after
 			@total -= 1
 			return "Removed: #{entry.data} from index #{index}"
 		else
