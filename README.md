@@ -1,1 +1,2 @@
 # linked_lists
+The "classes.rb" file contains the code for the LinkedList and Node classes, which dictate behaviors and attributes for both the whole linked list and each individual node. The "main.rb" file tests that each method is working properly by creating a test linked list. You can run a CLI script and create your own linked list!
