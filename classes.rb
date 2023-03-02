@@ -108,9 +108,8 @@ class LinkedList
     self.size -= 1
     "Removed: #{entry.data} from index #{index}"
 	end
-
 end
-  
+
 class Node
   attr_accessor :data, :next_node
 
